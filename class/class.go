@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Defining a struct to represent a class in Go
 type Person struct {
 	Name string
@@ -9,15 +11,15 @@ type Person struct {
 
 // Defining methods for the Person struct
 func (p Person) Greet() {
-	println("Hello, my name is", p.Name)
+	fmt.Println("Hello, my name is", p.Name)
 }
 
 func (p Person) GetAge() {
-	println("My age is", p.Age)
+	fmt.Println("My age is", p.Age)
 }
 
 func (p Person) GetJob() {
-	println("My job is", p.Job)
+	fmt.Println("My job is", p.Job)
 }
 
 func main() {

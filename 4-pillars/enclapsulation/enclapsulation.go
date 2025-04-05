@@ -20,6 +20,10 @@ type (
 	}
 )
 
+func PlayerAttack(p PlayerClass) {
+	p.Attack()
+}
+
 func (s Sorcerer) Attack() {
 	fmt.Println("Sorcerer attacks with spell:", s.Spell)
 }
@@ -47,7 +51,7 @@ func main() {
 	}
 
 	// Calling the Attack method for each class
-	sorcerer.Attack()
-	witch.Attack()
-	huntress.Attack()
+	PlayerAttack(sorcerer)
+	PlayerAttack(witch)
+	PlayerAttack(huntress)
 }
