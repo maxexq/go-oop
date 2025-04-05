@@ -1,8 +1,10 @@
 package main
 
+import "fmt"
+
 type (
 	Camera interface {
-		takePicture()
+		TakePicture()
 	}
 
 	DslrCamera struct {
@@ -17,19 +19,15 @@ type (
 	}
 )
 
-func takePictureWithCamera(c Camera) {
-	c.takePicture()
+func (d DslrCamera) TakePicture() {
+	fmt.Println("Taking picture with DSLR camera with lens:", d.lens)
+	fmt.Println("Max SD card size:", d.maxSdCardSize)
+	fmt.Println("Has viewfinder:", d.isHaveViewFinder)
 }
 
-func (d DslrCamera) takePicture() {
-	println("Taking picture with DSLR camera with lens:", d.lens)
-	println("Max SD card size:", d.maxSdCardSize)
-	println("Has viewfinder:", d.isHaveViewFinder)
-}
-
-func (c CompactCamera) takePicture() {
-	println("Taking picture with compact camera with weight:", c.weight)
-	println("Can switch lens:", c.isCanSwitchLens)
+func (c CompactCamera) TakePicture() {
+	fmt.Println("Taking picture with compact camera with weight:", c.weight)
+	fmt.Println("Can switch lens:", c.isCanSwitchLens)
 }
 
 func main() {
@@ -45,8 +43,7 @@ func main() {
 		isCanSwitchLens: false,
 	}
 
-	// Taking pictures with both cameras
-	// The takePictureWithCamera function accepts any type that implements the Camera interface
-	takePictureWithCamera(dslr)
-	takePictureWithCamera(compact)
+	// Calling the TakePicture method for each camera type
+	dslr.TakePicture()
+	compact.TakePicture()
 }
