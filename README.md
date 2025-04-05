@@ -1,1 +1,1 @@
-# go-oop
+# Go Object-Oriented Programming Learning lab
